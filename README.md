@@ -1,4 +1,4 @@
-![Star Wars](imgs/starwars+EU.png){:max-width="500px"}
+![Star Wars](imgs/starwars+EU.png)
 
 # A set of tools for the analysis of the data in GIS ShapeFiles
 
