@@ -15,3 +15,18 @@ build/
 # Virtual Environment
 .venv/
 venv/
+
+# TeX
+*.aux
+*.log
+*.synctex.gz
+*.dvi
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
+*.bbl
+*.blg
+*.lot
+*.lof
+*.gz
