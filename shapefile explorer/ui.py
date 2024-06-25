@@ -6,6 +6,7 @@ from tkinter import ttk
 import pandas as pd
 import geopandas as gpd
 from ShpExplorer import ShpExplorer
+import json
 
 # Add the parent directory to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
@@ -166,6 +167,22 @@ class ShapefileApp:
             return
 
         self.result_label.config(text=f"Similarity Result: {result}")
+        
+        # Save result as JSON
+        self.save_result_as_json(result, function)
+
+    def save_result_as_json(self, result, function_name):
+        result_dict = {
+            "similarity_function": function_name,
+            "result": result,
+            "selected_columns": [col for col, var in self.column_vars.items() if var.get()]
+        }
+        
+        file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json")])
+        if file_path:
+            with open(file_path, 'w') as f:
+                json.dump(result_dict, f, indent=4)
+            messagebox.showinfo("Success", f"Result saved to {file_path}")
 
 if __name__ == "__main__":
     root = tk.Tk()
